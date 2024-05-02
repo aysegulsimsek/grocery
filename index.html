@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Grocery | Taiwind Css</title>
+    <style>
+        .shadow-custom-yellow {
+            --shadow-color: rgba(255, 255, 0, 0.3);
+            --shadow-x: 5px;
+            --shadow-y: 5px;
+            --shadow-blur: 40px;
+            --shadow-spread: -15px;
+            box-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) var(--shadow-color);
+        }
+        
+        .card__item:hover span {
+            transform: translateX(10px);
+            color: rgb(221, 107, 107);
+            font-weight: 500;
+        }
+        
+        #card__item-group #first__item-group li {
+            height: 70px !important;
+        }
+        
+        .card__item-details {
+            display: none;
+            width: 100%;
+            height: 300px;
+            padding: 20px 10px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: url("https://yandex-images.clstorage.net/S5r2n1p49/55ed52tDeQo/oezFKRJyCzn2zDHDfZLeZEoyCgJh1H2IxGyhVp-KRwxAzCYe3VCQvhOq4n4TVsHNNbK6k7_T3-XXVIzHah7xOTS91jnCNV4upkoi0HxQn2OY9VgCcBNpCgGqY8Dfy11XSNC6hIOdTzbNtGf7V9BR2fbmbxStx0jn0IVInXEOIG6tbUjs1KIJtnga_05_39zvXDwOQnebo0rBeK7fA9dRUEEZOYUE3Mt1gnnhuxSBXZwxq-yYf8kOIMHDTZy9FqApp-dMqROlSfa_nXvL8xcZZBB7Qcz2nGGBDvlm04nX2x2E2XgIQ9kDMYc-ZrOZTp1Y_CHimTWFz6hJDMnWMN6tbG2hCaxX4gp4ttW_xz0WVaaTsomLsRZjQIR4YZfKGtHeBVk7go2SwPxOu-_1k08WEr5u4xyyzUJszoUE2L0c72YtZYhhFazCsv9WMoW1Vp6hUnCAynvc7E9MPeDXyJKb2QWcc0JNnYt_TzNisJJOWdw_Y-wYfAIDoceEDVv8laYsaSQGJ50iSz5zEfGGP9CfaVn1B0FzlemEyPim0k_ZlNDNkz_GCN1AcoJ7oXZYTZaY_u8lGTMDyazPBUbZdRanYOKoQCSXZUZ18tc3T_SeFeLauc5LeFdpQ0Pw6N9A09HewpT2TkVYB_5Ncee4kItU2L4n5V82jgHuB0RFkjRcLySiJQWukqONfvwX88f4k1SjWTvITv_T68EP-2GTTxSTlE2S9IlB3Q99xf-rfZGKnFqxK-pa8g7O4gELiVv4VGBsbKsEoVJjCPoznTuJfF-TK1Oxx8V0l2sEDzppG8qa2RzE3flIgJEJt0R743jRwFQbd2PrnrWCT2ULQ8-e8JCv6SjlxSFQrAs6-pw1xn8Q3W9YvYGHPBciiU5_5ttKU1_cwFJzB02cyLPEvyv2EQDeWjGur1z0yovkAolIGPJTp6YrYwbul23I_XOcs8r22pso2PVBTzCa64kL8WFdSc");
+            background-size: cover;
+        }
+        
+        .about {
+            position: relative;
+        }
+        
+        .about__popup {
+            position: absolute;
+            width: 48%;
+            height: 300px;
+            padding: 20px 10px;
+            top: 60%;
+            left: 50%;
+            border-radius: 20px;
+            background-color: rgb(26, 25, 25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            background: url("https://yandex-images.clstorage.net/S5r2n1p49/55ed52tDeQo/oezFKRJyCzn2zDHDfZLeZEoyCgJh1H2IxGyhVp-KRwxAzCYe3VCQvhOq4n4TVsHNNbK6k7_T3-XXVIzHah7xOTS91jnCNV4upkoi0HxQn2OY9VgCcBNpCgGqY8Dfy11XSNC6hIOdTzbNtGf7V9BR2fbmbxStx0jn0IVInXEOIG6tbUjs1KIJtnga_05_39zvXDwOQnebo0rBeK7fA9dRUEEZOYUE3Mt1gnnhuxSBXZwxq-yYf8kOIMHDTZy9FqApp-dMqROlSfa_nXvL8xcZZBB7Qcz2nGGBDvlm04nX2x2E2XgIQ9kDMYc-ZrOZTp1Y_CHimTWFz6hJDMnWMN6tbG2hCaxX4gp4ttW_xz0WVaaTsomLsRZjQIR4YZfKGtHeBVk7go2SwPxOu-_1k08WEr5u4xyyzUJszoUE2L0c72YtZYhhFazCsv9WMoW1Vp6hUnCAynvc7E9MPeDXyJKb2QWcc0JNnYt_TzNisJJOWdw_Y-wYfAIDoceEDVv8laYsaSQGJ50iSz5zEfGGP9CfaVn1B0FzlemEyPim0k_ZlNDNkz_GCN1AcoJ7oXZYTZaY_u8lGTMDyazPBUbZdRanYOKoQCSXZUZ18tc3T_SeFeLauc5LeFdpQ0Pw6N9A09HewpT2TkVYB_5Ncee4kItU2L4n5V82jgHuB0RFkjRcLySiJQWukqONfvwX88f4k1SjWTvITv_T68EP-2GTTxSTlE2S9IlB3Q99xf-rfZGKnFqxK-pa8g7O4gELiVv4VGBsbKsEoVJjCPoznTuJfF-TK1Oxx8V0l2sEDzppG8qa2RzE3flIgJEJt0R743jRwFQbd2PrnrWCT2ULQ8-e8JCv6SjlxSFQrAs6-pw1xn8Q3W9YvYGHPBciiU5_5ttKU1_cwFJzB02cyLPEvyv2EQDeWjGur1z0yovkAolIGPJTp6YrYwbul23I_XOcs8r22pso2PVBTzCa64kL8WFdSc");
+            background-repeat: repeat;
+            visibility: hidden;
+            transition: .3s;
+        }
+        
+        .work__button {
+            color: white;
+            display: flex;
+            align-items: center;
+            column-gap: .25px;
+            cursor: pointer;
+        }
+        
+        .about__popup.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .text-shadow-yellow {
+            text-shadow: 0 2px 5px rgba(243, 243, 101, 0.5);
+        }
+        
+        .product__card_container .add_card {
+            position: absolute;
+            bottom: 2%;
+            right: 2%;
+            cursor: pointer;
+            padding-left: 5px;
+            font-size: .6em;
+            font-weight: 600;
+            background-color: gainsboro;
+            border-radius: 3px;
+        }
+        
+        .product__card_container .add_card ion-icon {
+            font-size: 2em;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .product__card_container img {
+            width: 100%;
+            height: fit-content;
+        }
+        
+        .all__cont {
+            width: 100%;
+        }
+        
+        #home nav {
+            z-index: 2000 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- px-5:padding-right/left,
+    transition-transform duration-400 ,
+    fullscreen-container:container sayfaya hizalansın,
+ -->
+    <div class="fullscreen-container">
+        <div id="home" class=" fullscreen-container min-h-screen bg-[url('images/image.png')] bg-cover px-20 py-5 relative">
+            <nav class="flex items-center justify-center">
+                <img src="images/logo.png" alt="Logo" class="w-40 cursor-pointer">
+                <ul class="flex text-center">
+                    <li class="no-underline text-white list-none inline-block px-5">
+                        <a href="#home" class="px-2">Home</a>
+                    </li>
+                    <li class="no-underline text-white list-none inline-block px-5">
+                        <a href="#about" class="px-2">About</a>
+                    </li>
+                    <li class="no-underline text-white list-none inline-block px-5">
+                        <a href="#product" class="px-2">Product</a>
+                    </li>
+                    <li class="no-underline text-white list-none inline-block px-5">
+                        <a href="#" class="px-2">Contact</a>
+                    </li>
+                </ul>
+                <img src="images/cart.png" alt="Card" class="w-6 cursor-pointer">
+            </nav>
+            <div class="flex ">
+                <div id="home-text" class=" text-white mt-30  max-w-lg">
+                    <h1 class="text-6xl font-semibold leading-normal">Groceries <br>delivery in <span class="font-light">15 mins.</span></h1>
+                    <p>Grocify offer a wide range of products, including fresh products, meats dairy, baked goods and non-perishable items.
+                    </p>
+                    <div class="btn mt-10">
+                        <a href="#" class="box-border bg-yellow-300 rounded-3xl py-3 px-8 font-medium inline-block mr-4 hover:bg-transparent hover:border-yellow-300, hover:text-white hover:border">Order Now</a>
+                        <a href="#" class="box-border hover:bg-yellow-300 rounded-3xl py-2 hover:text-slate-950 px-5 font-medium inline-block mr-4 ">Download App <span class="text-lg inline-block rotate-90">&#10148;</span></a>
+                    </div>
+                </div>
+
+
+                <div><img src="images/grocery-image.png" alt="" class="grocery-image xl:max-w-xl xl:absolute bottom-0 right-20"></div>
+            </div>
+
+        </div>
+        <div id="about" class=" grid about px-20 py-10 bg-gray-900 mt-1  gap-y-20">
+            <div class="  text-shadow font-bold text-4xl  text-white  text-center rounded-lg px-10 py-5 ">About Us</div>
+            <div class="about_us grid grid-cols-2 ">
+                <img class="rounded-lg shadow-custom-yellow justify-center w-full" src="https://i.ytimg.com/vi/yopdUBRL0V4/maxresdefault.jpg" alt="">
+                <div class="flex about__text text-xl text-white max-w-screen-sm text-shadow-yellow items-center px-20 leading-relaxed">Welcome to Grocery Store Guide! Growing up in an Italian family we were very focused on food and purchasing the best food from the grocery stores. This site is dedicated to providing helpful information about grocery shopping, grocery
+                    stores, and grocery store food.</div>
+            </div>
+            <div id="card__info__container" class="card__info__container grid grid-cols-2 gap-y-4 gap-x-10">
+                <div class="grid grid-cols-1  gap-y-4  ">
+                    <div class="card__item ">
+                        <div id="instacart" class="card__btn flex justify-between items-center px-10 py-3 text-white bg-slate-500 cursor-pointer  rounded-lg hover:bg-gray-400 transition"><a href="">Instacart <span ></span></a>
+                            <br><span class=" py-2 inline-block work__button">Click &#8605;</span> </div>
+                    </div>
+                    <div class="card__item">
+                        <div id="grofers" class="card__btn flex justify-between items-center  px-10 py-3 text-white bg-slate-500 cursor-pointer rounded-lg hover:bg-gray-400"><a href="">Grofers</a>
+                            <br> <span class=" py-2 inline-block work__button">Click &#8605;</span> </div>
+                    </div>
+                    <div class="card__item ">
+                        <div id="freshdirect" class="card__btn flex justify-between items-center  px-10 py-3 text-white bg-slate-500 cursor-pointer  rounded-lg hover:bg-gray-400"><a href="">FreshDirect</a>
+                            <br><span class=" py-2 inline-block work__button">Click &#8605;</span></div>
+                    </div>
+                    <div class="card__item ">
+                        <div id="shipt" class="card__btn flex justify-between items-center  px-10 py-3 text-white bg-slate-500 cursor-pointer  rounded-lg hover:bg-gray-400"><a href="">Shipt</a>
+                            <br><span class=" py-2 inline-block work__button">Click &#8605;</span></div>
+                    </div>
+                    <div class="card__item ">
+                        <div id="7now" class="card__btn flex justify-between items-center  px-10 py-3 text-white bg-slate-500 cursor-pointer  rounded-lg hover:bg-gray-400"><a href=""> 7NOW</a>
+                            <br> <span class=" py-2 inline-block work__button">Click &#8605;</span></div>
+
+
+                    </div>
+                    <div class="card__item ">
+                        <div id="postmates" class="card__btn flex justify-between items-center  px-10 py-3 text-white bg-slate-500 cursor-pointer  rounded-lg hover:bg-gray-400"><a href="">Postmates</a>
+                            <br> <span class="py-2 inline-block work__button justify-self-stretch">Click &#8605;</span></div>
+
+
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 ">
+                    <div class="relative card__item-details p-10">
+                        <ion-icon class="text-white bg-slate-400 rounded-md top-3 right-5 absolute text-3xl hover:text-red-500 cursor-pointer" name="close-outline"></ion-icon>
+                        <ul class="py-3">
+                            <li class="about_inner1">Offering services in over 40 states in the USA, Instacart comes first on our list of best on-demand app that streamlines the way groceries get delivered to customers.</li>
+                            <li class="about_inner2"> Zero membership fees.</li>
+                            <li class="about_inner3"> Shipping fees — $ 3.99 for minimum orders of $10.</li>
+                            <li class="about_inner4"> Delivery time — 2 hours to 6 days</li>
+                        </ul>
+                    </div>
+                    <div class="relative card__item-details p-10">
+                        <ion-icon class="text-white bg-slate-400 rounded-md  top-3 right-5 absolute text-3xl hover:text-red-500 cursor-pointer" name="close-outline"></ion-icon>
+                        <ul class="py-3">
+                            <li class="about_inner1">Known formerly as Blinkit, Grofers comes second in our list. The app is known for making 10-minute grocery delivery services available.</li>
+                            <li class="about_inner2">Delivery time — 10 minutes</li>
+                            <li class="about_inner3">Shipping fees — Free for delivery above INR 250 for free, and INR 49 for up to 4 kilometers</li>
+                            <li class="about_inner4"> Areas for delivery — In over 27 cities in India</li>
+                        </ul>
+                    </div>
+                    <div class="relative card__item-details p-10">
+                        <ion-icon class="text-white bg-slate-400 rounded-md top-3 right-5 absolute text-3xl hover:text-red-500 cursor-pointer" name="close-outline"></ion-icon>
+                        <ul class="py-3">
+                            <li class="about_inner1">Making grocery delivery services available in the USA, the next grocery delivery app that streamlines grocery delivery services is FreshDirect.</li>
+                            <li class="about_inner2"> Makes available high-quality and organic items to customers.</li>
+                            <li class="about_inner3">Requires no membership</li>
+                            <li class="about_inner4">Delivery fees of $4 for non-members</li>
+                        </ul>
+                    </div>
+                    <div class="relative  card__item-details p-10">
+                        <ion-icon class="text-white bg-slate-400 rounded-md top-3 right-5 absolute text-3xl hover:text-red-500 cursor-pointer" name="close-outline"></ion-icon>
+                        <ul class="py-3">
+                            <li class="about_inner1">Providing same-day delivery services to customers; Shipt comes in our list of top seven grocery delivery app solutions.</li>
+                            <li class="about_inner2">The trial is for 30 days</li>
+                            <li class="about_inner3"> Makes it easy for customers to place orders 24/7</li>
+                            <li class="about_inner4">Delivery time - 1 hour</li>
+                        </ul>
+                    </div>
+                    <div class="relative  card__item-details p-10">
+                        <ion-icon class="text-white bg-slate-400 rounded-md top-3 right-5 absolute text-3xl hover:text-red-500 cursor-pointer" name="close-outline"></ion-icon>
+                        <ul class="py-3">
+                            <li class="about_inner1">Another popular grocery delivery app in the USA, 7NOW is known for streamlining grocery delivery services within 30 minutes.</li>
+                            <li class="about_inner2">Provides grocery delivery in over 200+ cities and 40+ metro areas in the USA like Detroit, Miami, Chicago</li>
+                            <li class="about_inner3">Gives access to over 3000+ items</li>
+                            <li class="about_inner4">Makes available deliveries 24*7 to customers</li>
+                        </ul>
+                    </div>
+                    <div class="relative card__item-details p-10">
+
+                        <ul class="py-3">
+                            <li class="about_inner1">Check out the features present on the platform that help it to stand out among customers ensuring quick grocery delivery services.</li>
+                            <li class="about_inner2">Delivery in over 4200+ cities</li>
+                            <li class="about_inner3"> Partners with over 500,000 stores</li>
+                            <li class="about_inner4">Requires minimum cart value</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about__popup">
+                    <div class="relative p-10">
+                        <ion-icon class="about__popup-close text-white bg-slate-400 rounded-md top-3 right-5 absolute text-3xl hover:text-red-500 cursor-pointer" name="close-outline"></ion-icon>
+                        <ul class="py-3 text-xl">
+                            <li class="popup_inner1">Check out the features present on the platform that help it to stand out among customers ensuring quick grocery delivery services.</li>
+                            <li class="popup_inner2">Delivery in over 4200+ cities</li>
+                            <li class="popup_inner3"> Partners with over 500,000 stores</li>
+                            <li class="popup_inner4">Requires minimum cart value</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="product" class="product py-8 px-9 bg-gray-50">
+            <div class="product__card_container">
+                <div class="all__cont"><span class="grid  bg-gray-900 h-9 items-center text-center rounded-lg text-white mb-2">All Product</span>
+                    <div class="all_cont_all grid grid-cols-2 gap-y-3 gap-x-3">
+
+                        <div class="kivi relative border-2 rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+
+                                <img src="images/kiwi.webp" alt="Kivi"></div>
+
+                        </div>
+                        <div class="orange relative border-2 rounded hover:border-slate-400">
+
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/orange-fruit.jpg" alt="Orange">
+                            </div>
+                        </div>
+                        <div class="banana relative border-2 rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/banana.webp" alt="banana">
+                            </div>
+                        </div>
+                        <div class="strawberry relative border-2 rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/strawberry.webp" alt="Kivi"></div>
+                        </div>
+                        <div class="apple border-2 relative rounded hover:border-slate-400">
+
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/apple.webp" alt="Apple">
+                            </div>
+                        </div>
+                        <div class="grape relative border-2  rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/grape.jpg" alt="grape">
+                            </div>
+                        </div>
+                        <div class="pineapple relative border-2 rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/Pineapple.jpg" alt="pineapple">
+                            </div>
+                        </div>
+
+
+                        <div class="tomato relative border-2 rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/tomato.webp" alt="tomato"></div>
+
+                        </div>
+                        <div class="marul relative border-2 rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/marul.webp" alt="marul"></div>
+
+                        </div>
+                        <div class="biber relative border-2 rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/pepper.webp" alt="biber"></div>
+
+                        </div>
+                        <div class="sogan border-2 relative rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/onion.webp" alt="Soğan"></div>
+
+                        </div>
+                        <div class="maydonoz border-2 relative  rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/maydonoz.webp" alt="maydonoz"></div>
+
+                        </div>
+                        <div class="carrot border-2 relative rounded hover:border-slate-400">
+                            <div>
+                                <div class="add_card flex items-center"><span class="text-white">Add to Card</span>
+                                    <ion-icon class="plus cursor-pointer text-gray-300 hover:text-blue-300" name="add-circle-outline"></ion-icon>
+                                </div>
+                                <img src="images/carrot.webp" alt="Carrot"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <footer>
+            <div class="footer bg-slate-800 py-4 px-3">
+                <div class="footer1 mb-1">
+                    <h1 class="text-white text-center text-lg font-semibold tracking-wider font-mono">Grocery</h1>
+                </div>
+                <div class="footer2" id="contact">
+                    <div class="flex text-white items-center justify-center text-xs">Connect with us at</div>
+                    <div class="flex text-white items-center justify-center">
+                        <a href=""> <i class='bx bxl-facebook-square mr-1'></i></a>
+                        <a href=""><i class='bx bxl-linkedin-square mr-1'></i></a>
+                        <a href=""><i class='bx bxl-youtube mr-1'></i></a>
+                        <a href=""><i class='bx bxl-instagram-alt mr-1'></i></a>
+                        <a href=""><i class='bx bxl-twitter mr-1'></i></a>
+                    </div>
+                </div>
+                <div class="footer3 grid grid-cols-4  text-white mt-2 items-end justify-end">
+                    <div class="products_1 text-center">
+                        <h1 class="font-semibold">Products</h1>
+                        <ul class="text-sm">
+                            <li>Sell your products</li>
+                            <li>Advertise</li>
+                            <li>Pricing</li>
+                            <li>Others</li>
+                        </ul>
+                    </div>
+                    <div class="services text-center">
+                        <h1 class="font-semibold">Services</h1>
+                        <ul class="text-sm">
+                            <li>Return</li>
+                            <li>Cash Back</li>
+                            <li>Product Business</li>
+                            <li>Others</li>
+                        </ul>
+                    </div>
+                    <div class="company text-center">
+                        <h1 class="font-semibold">Company</h1>
+                        <ul class="text-sm">
+                            <li>complaint</li>
+                            <li>Carrers</li>
+                            <li>Marketing</li>
+                            <li>Support</li>
+                        </ul>
+                    </div>
+                    <div class="get_help text-center">
+                        <h1 class="font-semibold">Get Help</h1>
+                        <ul class="text-sm">
+                            <li>Help Center</li>
+                            <li>Privacy Policy</li>
+                            <li>Terms</li>
+                            <li class="hover:text-red-500"><a href="login">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copy_right mt-3 text-center text-white text-xs">
+                    <span>&#169; Copyright all reserved.</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    </div>
+    </div>
+
+
+
+
+
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

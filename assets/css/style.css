@@ -1,0 +1,101 @@
+@media screen and (max-width:900px) {
+    @media screen and (max-width: 500px) {
+        #about .about_us {
+            display: flex;
+            flex-direction: column;
+        }
+        #about .about__text {
+            width: 90%;
+            font-size: 16px;
+        }
+        #card__info__container {
+            display: grid;
+            grid-template-columns: 1fr;
+            width: 100%;
+        }
+        .about__popup.open {
+            position: fixed;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            left: 5%;
+            top: 25%;
+            width: 90%;
+        }
+        .btn {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .footer .footer3 ul {
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+    .btn {
+        display: grid;
+        grid-template-columns: repeat(1, 50%);
+    }
+    #home #home-text {
+        z-index: 1000 !important;
+    }
+    .grocery-image {
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+        left: 40%;
+        z-index: 0;
+        padding: 0;
+    }
+    #about .about_us {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #about .about__text {
+        width: 100%;
+        padding: 0;
+        text-align: start;
+        margin-left: 20%;
+        margin-top: -20%;
+    }
+    #card__info__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+    .about__popup.open {
+        position: fixed;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        left: 5%;
+        top: 25%;
+        width: 90%;
+    }
+    .product .all__cont .all_cont_all {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .product .all__cont .add_card {
+        bottom: 5%;
+    }
+}
+
+@media screen and (max-width:1070px) {
+    .product .all__cont .all_cont_all {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .grocery-image {
+        top: 5%;
+        max-width: 50rem;
+    }
+    #home {
+        height: 200px !important;
+    }
+    .grocery-image {
+        position: absolute;
+        bottom: 0;
+        width: 60%;
+        left: 40%;
+        z-index: 0;
+        padding: 0;
+    }
+}
